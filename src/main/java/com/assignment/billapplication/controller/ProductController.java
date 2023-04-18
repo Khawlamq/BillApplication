@@ -8,24 +8,25 @@ import com.assignment.billapplication.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
+import static com.assignment.billapplication.utils.constant.BaseConstant.API;
+import static com.assignment.billapplication.utils.constant.BaseConstant.ID;
+import static com.assignment.billapplication.utils.constant.ProductConstant.PRODUCTS;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping(API + PRODUCTS)
 public class ProductController {
     @Autowired
     private ProductService productService;
     @Autowired
     private ProductMapper productMapper;
-
     @GetMapping
     public List<ProductResponseDto> findAll(){
         return productService.findAll().stream().map(productMapper::toResponse).collect(Collectors.toList());
     }
-    @GetMapping("/{id}")
+    @GetMapping(ID)
     public ProductResponseDto findByID(@PathVariable Long id){
         return productMapper.toResponse(productService.findByID(id));
     }
@@ -39,7 +40,7 @@ public class ProductController {
         Product product = productMapper.fromRequest(productRequestDto);
         return productMapper.toResponse(productService.save(product));
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping(ID)
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id){
         try {
             productService.deleteProduct(id);

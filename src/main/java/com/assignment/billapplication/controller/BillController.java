@@ -8,12 +8,14 @@ import com.assignment.billapplication.service.BillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.stream.Collectors;
+import static com.assignment.billapplication.utils.constant.BaseConstant.API;
+import static com.assignment.billapplication.utils.constant.BaseConstant.ID;
+import static com.assignment.billapplication.utils.constant.BillConstant.BILLS;
 
 @RestController
-@RequestMapping("/api/bills")
+@RequestMapping(API + BILLS)
 public class BillController {
     @Autowired
     private BillService billService;
@@ -24,7 +26,7 @@ public class BillController {
     public List<BillResponseDto> findAll(){
         return billService.findAll().stream().map(billMapper::toResponse).collect(Collectors.toList());
     }
-    @GetMapping("/{id}")
+    @GetMapping(ID)
     public BillResponseDto getBillById(@PathVariable("id") Long billId){
         Bill bill = billService.findById(billId);
         return billMapper.toResponse(bill);
@@ -39,7 +41,7 @@ public class BillController {
         Bill updatedBill = billService.save(thebill);
         return billMapper.toResponse(updatedBill);
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping(ID)
     public ResponseEntity<Void> deleteBill(@PathVariable Long id){
         try {
             billService.findById(id);

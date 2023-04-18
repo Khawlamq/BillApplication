@@ -1,4 +1,4 @@
-package com.assignment.billapplication.FactoryPattern;
+package com.assignment.billapplication.utils.discountFactory;
 
 import com.assignment.billapplication.entity.Bill;
 public class BillDiscount implements Discount{

@@ -1,7 +1,7 @@
 package com.assignment.billapplication.entity;
 
-import com.assignment.billapplication.FactoryPattern.Discount;
-import com.assignment.billapplication.FactoryPattern.DiscountFactory;
+import com.assignment.billapplication.utils.discountFactory.Discount;
+import com.assignment.billapplication.utils.discountFactory.DiscountFactory;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

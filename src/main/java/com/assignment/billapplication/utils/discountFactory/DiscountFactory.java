@@ -1,4 +1,4 @@
-package com.assignment.billapplication.FactoryPattern;
+package com.assignment.billapplication.utils.discountFactory;
 
 public class DiscountFactory {
    public Discount findDiscount(String type){
