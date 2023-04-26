@@ -44,7 +44,7 @@ public class BillController {
     @DeleteMapping(ID)
     public ResponseEntity<Void> deleteBill(@PathVariable Long id){
         try {
-            billService.findById(id);
+           billService.deleteBill(id);
         }catch (RuntimeException ex){
             return ResponseEntity.notFound().build();
         }

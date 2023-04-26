@@ -53,7 +53,7 @@ public class CustomerController {
         @DeleteMapping(ID)
         public ResponseEntity<Void> DeleteCustomer(@PathVariable Long id){
             try {
-                customerService.findByID(id);
+                customerService.deleteCustomer(id);
             }catch (RuntimeException ex){
                 return ResponseEntity.notFound().build();
             }

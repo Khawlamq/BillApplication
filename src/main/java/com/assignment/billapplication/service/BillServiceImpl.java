@@ -5,7 +5,6 @@ import com.assignment.billapplication.entity.Product;
 import com.assignment.billapplication.repository.BillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -31,7 +30,6 @@ public class BillServiceImpl implements BillService{
     }
     @Override
     public void deleteBill(Long id) {
-        System.out.println("The bill with id "+id+" is deleted. ");
         billRep.deleteById(id);
     }
 }

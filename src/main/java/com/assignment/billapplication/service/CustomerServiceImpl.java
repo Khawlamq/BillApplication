@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class CustomerServiceImpl implements CustomerService {
     @Autowired
@@ -19,30 +21,12 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRep.findById(id).orElseThrow(() ->
                 new RuntimeException("Sorry the customer with id " + id + " is not found."));
     }
-
-//    @Override
-//    public List<Bill> findBills(Long id) {
-//
-//        Optional<Customer> customer = customerRep.findById(id);
-//        Customer thecustomer = null;
-//
-//
-//        if(customer.isPresent()) {
-//            thecustomer = customer.get();
-//        }else
-//            throw new RuntimeException("Sorry the customer with id "+ id + "is not found. ");
-//
-//
-//        return thecustomer.getBills();
-//    }
-
     @Override
     public Customer save(Customer customer) {
         return customerRep.save(customer);
     }
     @Override
     public void deleteCustomer(Long id) {
-        System.out.println("The customer with id " + id + " is deleted. ");
-        customerRep.deleteById(id);
+            customerRep.deleteById(id);
     }
 }
