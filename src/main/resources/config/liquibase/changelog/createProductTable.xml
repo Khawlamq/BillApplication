@@ -1,0 +1,26 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    ...
+    <!--Added the entity Car-->
+    <changeSet id="1" author="{Khawla alqahtani}">
+       <createTable tableName="Bill">
+          <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+             <constraints primaryKey="true" nullable="false" />
+          </column>
+          <column name="createdAt" type="datetime">
+             <constraints nullable="false" />
+          </column>
+          <column name="discountAmount" type="double">
+             <constraints nullable="false" />
+          </column>
+          <column name="totalAfterDis" type="double">
+             <constraints nullable="false" />
+          </column>
+           <column name="totalBeforeDis" type="double">
+               <constraints nullable="false" />
+           </column>
+           <column name="customerId" type="bigint">
+           <constraints nullable="false" />
+       </column>
+       </createTable>
+    </changeSet>
+ </databaseChangeLog>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="a_bill_table_creation" author="KhawlaAlqahtani">
+        <createTable tableName="a_bill">
+            <column name="op" type="char(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="stamp" type="timestamp">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false" />
+            </column>
+            <column name="discount_amount" type="double">
+                <constraints nullable="false" />
+            </column>
+            <column name="total_after_dis" type="double">
+                <constraints nullable="false" />
+            </column>
+            <column name="total_before_dis" type="double">
+                <constraints nullable="false" />
+            </column>
+            <column name="customer_id" type="bigint">
+            <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="a_customer_table_creation" author="KhawlaAlqahtani">
+        <createTable tableName="a_customer">
+            <column name="op" type="char(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="stamp" type="timestamp">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="type" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            </createTable>
+    </changeSet>
+
+    <changeSet id="a_product_table_creation" author="KhawlaAlqahtani">
+        <createTable tableName="a_product">
+            <column name="op" type="char(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="stamp" type="timestamp">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="price" type="double">
+                <constraints nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="type" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="a_productsInBill_table_creation" author="KhawlaAlqahtani">
+        <createTable tableName="a_products_in_bill">
+            <column name="bill_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="product_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
